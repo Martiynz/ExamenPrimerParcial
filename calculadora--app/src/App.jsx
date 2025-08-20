@@ -153,7 +153,36 @@ export default function App() {
                 </div>
               </form>
 
-              
+              {results && (
+                <div className="mt-4">
+                  <div className="card border-success">
+                    <div className="card-body">
+                      <h2 className="h6 text-success mb-3">Resultados de la Compra</h2>
+                      <ul className="list-group">
+                        <li className="list-group-item d-flex justify-content-between">
+                          <span>Subtotal</span>
+                          <strong>{nf.format(results.subtotal)}</strong>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between">
+                          <span>
+                            Descuento{" "}
+                            <span className="badge text-bg-success">{results.pct}%</span>
+                          </span>
+                          <strong>-{nf.format(results.discount)}</strong>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between">
+                          <span>Total a pagar</span>
+                          <strong>{nf.format(results.total)}</strong>
+                        </li>
+                      </ul>
+
+                      <div className="mt-2 small text-muted">
+                        Rangos de descuento: 0–999.99 (0%), 1,000–4,999.99 (10%), 5,000–8,999.99 (20%), 9,000–12,999.99 (30%), 13,000+ (40%).
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
             </div>
           </div>
